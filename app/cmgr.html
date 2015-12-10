@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>题目管理</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/summernote/dist/summernote.css" />
+    <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.css" />
+    <link rel="stylesheet" href="/bower_components/bootstrapvalidator/dist/css/bootstrapValidator.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/cmgr.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="container">
+      <div class="header">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"> <img style="width:30px;display: inline-block;" alt="140x140" src="images/logo.png" />&nbsp;&nbsp;CRS课堂应答系统</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav" id="navbar-nav">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="teacher.html">开始运行系统</a></li>
+                <li class="active"><a href="#problem_list">后台管理</a></li>
+                <!--<li><a href="#edit_problem">题目编辑</a></li>-->
+                <li><a href="about.html">关于</a></li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
+          </div>
+        </nav>
+      </div>
+
+      <div id="fullpage">
+        <div data-anchor="problem_list" class="container-fluid section">
+          <div class="row">
+            <div class="col-md-3">
+              <h4>分类标签 <button id="btn_addgroup" type="button " class="btn btn-primary btn-small">新建分类</button></h4>
+              <div class="list-group">
+                <a href="#" class="list-group-item"><span class="badge">1</span> Cras justo odio </a>
+                <a href="#" class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item active"><span class="badge">8</span>Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item"><span class="badge">5</span>Vestibulum at eros</a>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <h4>题目列表 <button id="btn_add_pro" type="button " class="btn btn-primary btn-small">添加题目</button></h4>
+              <ol id="tm_list" class="rounded-list">
+
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div data-anchor="edit_problem" class="container-fluid section">
+          <div class="row">
+            <div class="col-md-12 column">
+              <form class="form-horizontal" role="form" onsubmit="return false;">
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" placeholder="请输入问题内容" id="p_content" />
+                  </div>
+                </div>
+                <div id="answer_container">
+                  <div class="input-group">
+                                <span class="input-group-addon">
+                            <input type="radio" class="is_right" aria-label="..."  name="is_right" checked="checked" ><span></span>
+                          </span>
+                    <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项">
+                                <span class="input-group-addon del_an_hide">
+                                    <a class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
+                                </span>
+                  </div>
+                  <!-- /input-group -->
+                  <div class="input-group">
+                                <span class="input-group-addon">
+                            <input type="radio" class="is_right" aria-label="..." name="is_right" ><span></span>
+                          </span>
+                    <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项">
+                                <span class="input-group-addon del_an_hide">
+                                    <a class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
+                                </span>
+                  </div>
+                  <!-- /input-group -->
+                </div>
+                <button id="btn_add_an" type="button " class="btn btn-primary btn-large btn-block">添加答案选项</button>
+                <hr class="col-sm-offset-2 col-sm-10">
+                <div class="form-group row">
+                  <div class="col-sm-offset-2 col-sm-8">
+                    <div class="checkbox">
+                      <div class="form-group" ></div>
+                      <label>当前选择的题库： </label><input id="p_group" type="text" placeholder="默认全部" disabled="" class="form-control">
+
+                      <div class="dropdown">
+                        <button id="dropdownMenu2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle">选择题库类别<span class="caret"></span></button>
+                        <ul aria-labelledby="dropdownMenu2" class="dropdown-menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li><a href="#">Separated link</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-6">
+                    <a type="buttom" href="#problem_list" class="btn btn-primary btn-block">返回题目列表</a>
+                  </div>
+                  <div class="col-sm-6">
+                    <button id="btn_save" type="buttom" class="btn btn-success btn-block">保存</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <hr class=" col-sm-offset-2 col-sm-8">
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="modal fade" id="loading_Modal" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">正在连接服务器。。。</h4>
+            </div>
+            <div class="modal-body">
+              <img src="images/loading.gif" width="100%">
+            </div>
+
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/summernote/dist/summernote.js"></script>
+    <script src="/bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <script src="/bower_components/fullpage.js/vendors/jquery.easings.min.js"></script>
+    <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
+    <script src="/bower_components/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/socket.io.js -->
+    <script src="/browser-sync/socket.io/socket.io.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

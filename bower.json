@@ -1,0 +1,21 @@
+{
+  "name": "crs2",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.1",
+    "summernote": "~0.7.0",
+    "jquery": "~2.1.4",
+    "fullpage.js": "~2.7.6",
+    "bootstrapvalidator": "~0.5.3"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  }
+}

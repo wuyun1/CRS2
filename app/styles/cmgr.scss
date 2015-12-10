@@ -1,0 +1,74 @@
+@import "main.scss";
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#answer_container {
+  border: 1px solid gray;
+  padding: 2px;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
+.del_an_hide {
+  display: none !important;
+  padding: 0;
+}
+
+#answer_container div:hover .del_an_hide {
+  display: table-cell !important;
+}
+
+#tm_list {
+  > li {
+    &:hover .del_an_hide {
+      position: absolute;
+      display: block !important;
+      width: auto;
+      padding: 5px;
+      right: 5px;
+      top: 0px;
+    }
+    /*	position: relative;
+    	margin-top: 5px;
+    	margin-bottom: 5px;
+    	height: 30px;
+    	line-height: 30px;
+    	text-align: center;
+    	background: orange;
+    	border-radius: 5px;*/
+    width: 80%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+  }
+  border: 1px solid gray;
+  /*padding: 2px;*/
+  max-height: 500px;
+  list-style-type: none;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.is_right {
+  opacity: 0.01;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: yellow;
+  + span {
+    margin-top: -25px;
+    width: 25px;
+    height: 25px;
+    background: red;
+    display: block;
+    border-radius: 5px;
+  }
+  &:checked + span {
+    background: green;
+  }
+}

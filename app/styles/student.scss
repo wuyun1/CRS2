@@ -1,0 +1,27 @@
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/font-awesome/scss/font-awesome.scss";
+@import "bower_components/fullpage.js/jquery.fullPage.scss";
+// endbower
+body, html,.container {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width:100%;
+}
+#fullpage{
+
+  height: 100%;
+
+  &>.section{
+    padding-top: 52px;
+    height: 100%;
+    box-sizing: border-box;
+    background: url(/images/xs_bg.jpg) 0px 0px;
+    background-size: cover;
+  }
+}
+
+.main_panel button {
+  height: 100px;
+}
