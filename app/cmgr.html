@@ -57,122 +57,113 @@
         </nav>
       </div>
 
-      <div id="fullpage">
-        <div data-anchor="problem_list" class="container-fluid section">
-          <div class="row">
-            <div class="col-md-3">
-              <h4>分类标签 <button id="btn_addgroup" type="button " class="btn btn-primary btn-small">新建分类</button></h4>
-              <div class="list-group">
-                <a href="#" class="list-group-item"><span class="badge">1</span> Cras justo odio </a>
-                <a href="#" class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item active"><span class="badge">8</span>Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item"><span class="badge">5</span>Vestibulum at eros</a>
-              </div>
-            </div>
-            <div class="col-md-9">
-              <h4>题目列表 <button id="btn_add_pro" type="button " class="btn btn-primary btn-small">添加题目</button></h4>
-              <ol id="tm_list" class="rounded-list">
-
-              </ol>
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="navbar-inner navbar-content-center">
+          <p class="text-muted credit" style="padding: 10px;">
+            ♥ from 湖南农业大学 教育院 教育技术系
+          </p>
+        </div>
+      </nav>
+    </div>
+    <div id="fullpage">
+      <div data-anchor="problem_list" class="container-fluid section">
+        <div class="row">
+          <div class="col-md-3">
+            <h4>分类标签 <button id="btn_addgroup" type="button " class="btn btn-primary btn-small">新建分类</button></h4>
+            <div class="list-group">
+              <a href="#" class="list-group-item"><span class="badge">1</span> Cras justo odio </a>
+              <a href="#" class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</a>
+              <a href="#" class="list-group-item active"><span class="badge">8</span>Morbi leo risus</a>
+              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+              <a href="#" class="list-group-item"><span class="badge">5</span>Vestibulum at eros</a>
             </div>
           </div>
-        </div>
-        <div data-anchor="edit_problem" class="container-fluid section">
-          <div class="row">
-            <div class="col-md-12 column">
-              <form class="form-horizontal" role="form" onsubmit="return false;">
-                <div class="form-group">
-                  <div class="col-sm-12">
-                    <input type="text" class="form-control" placeholder="请输入问题内容" id="p_content" />
-                  </div>
-                </div>
-                <div id="answer_container">
-                  <div class="input-group">
-                                <span class="input-group-addon">
-                            <input type="radio" class="is_right" aria-label="..."  name="is_right" checked="checked" ><span></span>
-                          </span>
-                    <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项">
-                                <span class="input-group-addon del_an_hide">
-                                    <a class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
-                                </span>
-                  </div>
-                  <!-- /input-group -->
-                  <div class="input-group">
-                                <span class="input-group-addon">
-                            <input type="radio" class="is_right" aria-label="..." name="is_right" ><span></span>
-                          </span>
-                    <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项">
-                                <span class="input-group-addon del_an_hide">
-                                    <a class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
-                                </span>
-                  </div>
-                  <!-- /input-group -->
-                </div>
-                <button id="btn_add_an" type="button " class="btn btn-primary btn-large btn-block">添加答案选项</button>
-                <hr class="col-sm-offset-2 col-sm-10">
-                <div class="form-group row">
-                  <div class="col-sm-offset-2 col-sm-8">
-                    <div class="checkbox">
-                      <div class="form-group" ></div>
-                      <label>当前选择的题库： </label><input id="p_group" type="text" placeholder="默认全部" disabled="" class="form-control">
+          <div class="col-md-9">
+            <h4>题目列表 <button id="btn_add_pro" type="button " class="btn btn-primary btn-small">添加题目</button></h4>
+            <ol id="tm_list" class="rounded-list">
 
-                      <div class="dropdown">
-                        <button id="dropdownMenu2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle">选择题库类别<span class="caret"></span></button>
-                        <ul aria-labelledby="dropdownMenu2" class="dropdown-menu">
-                          <li><a href="#">Action</a></li>
-                          <li><a href="#">Another action</a></li>
-                          <li><a href="#">Something else here</a></li>
-                          <li><a href="#">Separated link</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-6">
-                    <a type="buttom" href="#problem_list" class="btn btn-primary btn-block">返回题目列表</a>
-                  </div>
-                  <div class="col-sm-6">
-                    <button id="btn_save" type="buttom" class="btn btn-success btn-block">保存</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <hr class=" col-sm-offset-2 col-sm-8">
+            </ol>
           </div>
         </div>
       </div>
+      <div data-anchor="edit_problem" class="container-fluid section">
+        <div class="row">
+          <div class="col-md-12 column">
+            <form class="form-horizontal" role="form" onsubmit="return false;">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" placeholder="请输入问题内容" id="p_content" />
+                </div>
+              </div>
+              <div id="answer_container">
+                <div class="input-group">
+                                <span class="input-group-addon">
+                            <input type="radio" class="is_right" aria-label="..."  name="is_right" checked="checked" ><span></span>
+                          </span>
+                  <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项">
+                                <span class="input-group-addon del_an_hide">
+                                    <a class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
+                                </span>
+                </div>
+                <!-- /input-group -->
+                <div class="input-group">
+                                <span class="input-group-addon">
+                            <input type="radio" class="is_right" aria-label="..." name="is_right" ><span></span>
+                          </span>
+                  <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项">
+                                <span class="input-group-addon del_an_hide">
+                                    <a class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a>
+                                </span>
+                </div>
+                <!-- /input-group -->
+              </div>
+              <button id="btn_add_an" type="button " class="btn btn-primary btn-large btn-block">添加答案选项</button>
+              <hr class="col-sm-offset-2 col-sm-10">
+              <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-8">
+                  <div class="checkbox">
+                    <div class="form-group" ></div>
+                    <label>当前选择的题库： </label><input id="p_group" type="text" placeholder="默认全部" disabled="" class="form-control">
 
-
-
-      <div class="modal fade" id="loading_Modal" >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">正在连接服务器。。。</h4>
-            </div>
-            <div class="modal-body">
-              <img src="images/loading.gif" width="100%">
-            </div>
-
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
-
-
-
+                    <div class="dropdown">
+                      <button id="dropdownMenu2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle">选择题库类别<span class="caret"></span></button>
+                      <ul aria-labelledby="dropdownMenu2" class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-6">
+                  <a type="buttom" href="#problem_list" class="btn btn-primary btn-block">返回题目列表</a>
+                </div>
+                <div class="col-sm-6">
+                  <button id="btn_save" type="buttom" class="btn btn-success btn-block">保存</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <hr class=" col-sm-offset-2 col-sm-8">
+        </div>
+      </div>
     </div>
+    <div class="modal fade" id="loading_Modal" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">正在连接服务器。。。</h4>
+          </div>
+          <div class="modal-body">
+            <img src="images/loading.gif" width="100%">
+          </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -183,6 +174,7 @@
     <script src="/bower_components/fullpage.js/vendors/jquery.easings.min.js"></script>
     <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
     <script src="/bower_components/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+    <script src="/bower_components/jquery-qrcode/jquery.qrcode.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -202,7 +194,7 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
+    <script src="scripts/cmgr.js"></script>
     <!-- endbuild -->
     <!-- build:js scripts/socket.io.js -->
     <script src="/browser-sync/socket.io/socket.io.js"></script>

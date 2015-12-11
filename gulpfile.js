@@ -107,9 +107,9 @@ _gulp2.default.task('babel_gulp', function () {
 });
 _gulp2.default.task('serve:my', function () {
   (0, _browserSync2.default)({
-    port: 9504,
+    port: 9502,
     open: "external",
-    online: false,
+    online: true,
     server: {
       //baseDir: ['dist']
       baseDir: ['.tmp', 'app'],
@@ -166,7 +166,7 @@ _gulp2.default.task('wiredep', function () {
   })).pipe(_gulp2.default.dest('app'));
 });
 
-_gulp2.default.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], function () {
+_gulp2.default.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'wiredep'], function () {
   return _gulp2.default.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 

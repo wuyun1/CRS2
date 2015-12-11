@@ -1,4 +1,135 @@
-@import "main.scss";
+@import "main.css";
+@import "css3list.css";
+html{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+}
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  position: relative;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
+}
+
+#login_bincode {
+  border: 1px solid gray;
+  width: 80%;
+  > canvas {
+    border: 1px solid gray;
+    width: 100%;
+  }
+}
+
+#logined_users_box {
+  border: 1px solid gray;
+  height: 300px;
+  overflow-y: scroll;
+  position: relative;
+  overflow-x: solid;
+  > li {
+
+    width: 80%;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
+
+#fullpage{
+  width:100%;
+}
+#title_h1 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+
+
+#ctl_panel {
+  position: absolute;
+  bottom: 15px;
+  background: rgb(3, 5, 6);
+  display: none;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.62);
+  border-radius: 10px;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+  left: 50%;
+  text-align: center;
+  padding-top: 5px;
+  z-index: 999;
+}
+
+#tmlist_wraper {
+  .slide {
+    position: relative;
+    background: url(/images/micro_carbon.png);
+  }
+  .tmbox {
+    padding: 125px 60px 104px 60px;
+    background: url(/images/tm_bg.png) 50% 50%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    top: 30%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 80%;
+    height: 60%;
+    h2 {
+      padding: 50px 60px;
+      margin: -120px 20px 0px 25px;
+      color: #000;
+      text-align: center;
+      text-shadow: 2px 2px 3px rgb(24, 36, 119);
+
+    }
+    ol {
+
+      padding: 11px;
+      margin: 0px 60px;
+      li {
+        font-weight: bold;
+        padding: 2px;
+        color: #000;
+        text-align: center;
+        margin-left: 50%;
+        transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        list-style-type: upper-latin;
+        font-size: 23px;
+        + li {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+}
+
+.fullwidth {
+  width: 100%;
+  height: 5px;
+  background: #000;
+  margin-top: 7px;
+  .expand {
+    width: 100%;
+    height: 1px;
+    margin: 2px 0;
+    background: #2187e7;
+    position: absolute;
+    box-shadow: 0px 0px 10px 1px rgba(0, 198, 255, 0.7);
+    -moz-animation: fullexpand 3s ease-out;
+    -webkit-animation: fullexpand 3s ease-out;
+  }
+}
+
+#page2 {
+  padding: 0;
+}
 
 

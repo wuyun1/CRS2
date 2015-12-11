@@ -118,7 +118,7 @@ gulp.task('serve:my', () => {
   browserSync({
     port: 9502,
     open: "external",
-    online:false,
+    online:true,
     server: {
       //baseDir: ['dist']
       baseDir: ['.tmp', 'app'],

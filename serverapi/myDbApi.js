@@ -1,10 +1,13 @@
 var level = require('level');
 var db = level('./mydb');
 function put(key, value, callback) {
+
+    value = JSON.stringify(value);
+
     if (key && value) {
         db.put(key, value, function (error) {
           callback&&callback(error);
-        })
+        });
     } else {
       callback&&callback('no key or value');
     }
@@ -14,7 +17,7 @@ function put(key, value, callback) {
 function get(key, callback) {
     if (key) {
         db.get(key, function (error, value) {
-          callback&&callback(error, value);
+          callback&&callback(error,value&&JSON.parse( value));
         })
     } else {
       callback&&callback('no key', key);
@@ -85,9 +88,35 @@ function find(find, callback) {
             });
     }
 }
+function findAll(find, callback) {
+  var option = {keys: true, values: true, revers: false, limit: 20, fillCache: true};
+  if (!find)
+    return callback('nothing', null);
+  else {
+    if (find.prefix) {
+      option.start = find.prefix;
+      option.end = find.prefix.substring(0, find.prefix.length - 1)
+        + String.fromCharCode(find.prefix[find.prefix.length - 1].charCodeAt() + 1);
+    }
 
+    if (find.limit)
+      option.limit = find.limit;
+    var result = [];
+    db.createReadStream(option).on('data',function (data) {
+      //data&&callback&&callback(data.key, data.value);
+
+      result.push(JSON.parse(data.value));
+      result[result.length-1]._key=data.key;
+    }).on('error',function (err) {
+    }).on('close',function () {
+    }).on('end', function () {
+      return callback&&callback(null,result, Date.now());
+    });
+  }
+}
 exports.put = put;
 exports.get = get;
 exports.del = del;
 exports.find = find;
+exports.findAll = findAll;
 exports.batch = batch;

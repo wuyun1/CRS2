@@ -7,7 +7,8 @@
     "summernote": "~0.7.0",
     "jquery": "~2.1.4",
     "fullpage.js": "~2.7.6",
-    "bootstrapvalidator": "~0.5.3"
+    "bootstrapvalidator": "~0.5.3",
+    "jquery-qrcode": "*"
   },
   "overrides": {
     "bootstrap-sass": {

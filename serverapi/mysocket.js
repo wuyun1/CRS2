@@ -1,7 +1,7 @@
 /**
  * Created by WYQ on 2015/12/10.
  */
-var problemdb= require("./mydbapi.js");
+var db= require("./mydbapi.js");
 
 var teacher=null;
 var users=[];
@@ -28,9 +28,10 @@ var mysockethandle = function (socket) {
       socket.broadcast.emit("logout");
       students=[];
     });
-    socket.on('get_tm_data', function(cate) {
-      if(cate=="default"){
-        problemdb.find({}, function (key,date) {
+    socket.on('get_tm_data', function(type) {
+      type=type||'default';
+      if(type=="default"){
+        db.findAll({}, function (err,datas) {
           cur_tmdatas=datas;
           socket.emit('tm_data',datas);
           socket.broadcast.emit("tm_data",datas);
@@ -49,48 +50,30 @@ var mysockethandle = function (socket) {
     });
   });
   socket.on('manger_login',function () {
-
     console.log("管理端以登录！");
+
     socket.on('save_problem',function  (pro,key) {
-
-
       key=key || "ID_"+(+new Date());
-
-
-
-
-      problemdb.set(key,pro);
-
-      console.log("保存题目:",pro,key);
-
-    });
-
-    socket.on('del_pro',function(key) {
-
-      if(!key) return false;
-
-
-
-
-
-
-      problemdb.remove(key);
-
-      console.log("删除题目:",key);
-
-    });
-
-
-    socket.on('get_all_pro',function  () {
-      console.log("获取所有题目");
-
-      problemdb.filter(100,function(obj,key) {
-        if(obj._key) return true;
-        else return false;
-      }, function (datas) {
-        socket.emit('all_pro_data',datas);
+      db.put(key,pro, function () {
+        console.log("保存题目:",pro,key);
       });
+    });
+    socket.on('del_pro',function(key) {
+      if(!key) return false;
+      db.del(key, function () {
+        console.log("管理端删除题目:",key);
+      })
 
+    });
+    socket.on('get_all_pro',function  (type) {
+
+      type=type||'default';
+      if(type=="default") {
+        db.findAll({prefix: "ID_"}, function (err, datas) {
+          socket.emit('all_pro_data', datas);
+          console.log("管理端获取所有题目",datas);
+        });
+      }
     });
 
     socket.on('message', function(e) {
