@@ -6,9 +6,10 @@ $(function () {
   var start_dati=false;
   var cur_yd_data=[];
   var yd_count=0;
+  var students=[];
   $('#loading_Modal').modal('show');
 
-  var students=[];
+
   // students=students.slice(0,index).concat(students.slice(index+1,students.length));
 
   function fullpagebuild () {
@@ -26,17 +27,12 @@ $(function () {
       afterSlideLoad:function (anchorLink,	index,	slideIndex) {
         // console.log(anchorLink,	index,	slideIndex);
         if(getCurtmid()!=-1){
+
           da_cur_ti();
         }
 
       },
       afterLoad:function (anchorLink, index) {
-        $("#navbar-nav>.active").removeClass("active");
-        $("#navbar-nav>li>a[href=#"+anchorLink+"]").parent().addClass("active");
-        console.log(anchorLink);
-        if(getCurtmid()!=-1 && start_dati){
-          da_cur_ti();
-        }
         switch(anchorLink){
           case "page_login":
             $("#top_bar,#bottom_bar").show(0);
@@ -50,13 +46,24 @@ $(function () {
 
             break;
         }
-        $(document).attr('title',$("#navbar-nav>.active").text());
+        if(getCurtmid()!=-1){
+
+          da_cur_ti();
+        }else{
+          console.log(getCurtmid());
+          $.fn.fullpage.moveTo("page_login");
+        }
+
+        //$(document).attr('title',$("#navbar-nav>.active").text());
 
       }
     });
-
+    $.fn.fullpage.setAllowScrolling(false);
+    $.fn.fullpage.moveTo("page_login");
   }
+
   fullpagebuild ();
+
   var socketConfig = {
     'reconnectionAttempts': 50,
     'path': '/browser-sync/socket.io'
@@ -74,10 +81,13 @@ $(function () {
 
       socket.emit('teacher_login');
       $('#loading_Modal').modal('hide');
+      $("#xs_len").click(function () {
+        console.log(students);
+      });
 
-
-      socket.on("xs_dl",function (index,name,num) {
-        students.push({name:name,num:num,serverindex:index});
+      socket.on("xs_dl",function (name,num) {
+        console.log(students);
+        students.push({name:name,num:num});
         var xs_len=students.length;
         $("#xs_len").text(xs_len);
         var newli=$("<a></a>");
@@ -86,11 +96,18 @@ $(function () {
         $("#logined_users_box").append(	$("<li>").append(newli)	);
       });
 
-      socket.on("xs_xx",function (index,name,num) {
+      socket.on("xs_xx",function (name,num) {
+        var index;
+        for(var i = 0;i<students.length;i++){
+          if(num==students[i].num){
+            index = i;
+            break;
+          }
+        }
         students=students.slice(0,index).concat(students.slice(index+1,students.length));
         var xs_len=students.length;
         $("#xs_len").text(xs_len);
-        $("#xsli_"+num).remove();
+        $("#xsli_"+num).parent().remove();
       });
 
     },1000);
@@ -167,9 +184,20 @@ $(function () {
 
 
   socket.on('yd_data', function(num,xx_index) {
-    yd_count++;
-    cur_yd_data.push({num:num,xx_index:xx_index});
-    var p=(yd_count/$("#logined_users_box").children().length)*100;
+    var index=-1;
+    for(var i = 0 ;i <cur_yd_data.length;i++ ){
+      if(cur_yd_data[i].num==num){
+        index = i;
+        break;
+      }
+    }
+    if(index==-1){
+      yd_count++;
+      cur_yd_data.push({num:num,xx_index:xx_index});
+    }else{
+      cur_yd_data[index].xx_index=xx_index;
+    }
+    var p=(yd_count/students.length)*100;
     console.log( p);
     $("#p_yd").css("width",p+"%");
     if(p>=100){
@@ -267,8 +295,8 @@ $(function () {
           });
         });
       }else{
-        $("#btn_yd").text("应答全部完成，点击查看结果统计");
-        $("#btn_yd_next").text("应答全部完成,点击查看结果统计");
+        $("#btn_yd").text("应答全部完成");
+        $("#btn_yd_next").text("应答全部完成");
         $("#btn_yd_next").unbind( "click" );
         $("#btn_yd_next").click(function  (){
           $("#btn_yd").click();
@@ -279,13 +307,10 @@ $(function () {
       $.fn.fullpage.moveSlideRight();
       $('#yd_result').modal('hide');
       $("#p_yd").css("width","0%");
-    }else if(text == "应答全部完成，点击查看结果统计"){
-      alert(3);
+    }else if(text == "应答全部完成"){
+      alert(应答全部完成);
     }
   });
-
-
-
 
   $("#btn_beginanswer").click(function () {
     $("#ctl_panel").show();
@@ -296,7 +321,9 @@ $(function () {
 
     //return false;
   });
-
+  $("#btn_return_login").click(function () {
+    $.fn.fullpage.moveTo("page_login");
+  });
 
   var xsdlurl=window.location.protocol+"//"+window.location.host+"/student.html";
   $('#login_bincode').qrcode(xsdlurl);
@@ -329,6 +356,7 @@ $(function () {
   }
 
   function getCurtmid () {
+    if(!ctm_data) return -1;
     var r=/#page_beginanswer\/?(\d*)/.exec(location.hash);
     if(r) {
       if(r[1]!="") {

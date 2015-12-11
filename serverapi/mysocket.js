@@ -24,6 +24,8 @@ var mysockethandle = function (socket) {
     teacher=socket;
     socket.on('disconnect', function(e) {
       teacher=null;
+      cur_tmdatas=null;
+      isyding=0;
       console.log("教师端已经下线！",e);
       socket.broadcast.emit("logout");
       students=[];
@@ -94,9 +96,8 @@ var mysockethandle = function (socket) {
       console.log(nickname,num,"学生端登录");
       if(teacher) {
         students.push(socket);
-        var index=students.indexOf(socket);
-        socket.emit("loginSuccess",index,nickname,num,cur_tmdatas,isyding);
-        teacher.emit("xs_dl",index,nickname,num);
+        socket.emit("loginSuccess",nickname,num,cur_tmdatas,isyding);
+        teacher.emit("xs_dl",nickname,num);
         socket.xs_name=nickname;
         socket.xs_num=num;
         socket.on("yd_data",function(num,xx_index) {
@@ -109,8 +110,8 @@ var mysockethandle = function (socket) {
         if(students.length!=0){
           var index=students.indexOf(socket);
           students=students.slice(0,index).concat(students.slice(index+1,students.length));
-          teacher&&teacher.emit("xs_xx",index,socket.xs_name,socket.xs_num);
-          console.log("学生下线！",index,socket.xs_name,socket.xs_num);
+          teacher&&teacher.emit("xs_xx",socket.xs_name,socket.xs_num);
+          console.log("学生下线！",socket.xs_name,socket.xs_num);
         }
       });
     });

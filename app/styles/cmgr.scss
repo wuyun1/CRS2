@@ -2,8 +2,8 @@
 @import "css3list.css";
 
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+  //padding-top: 70px;
+  //padding-bottom: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -22,40 +22,58 @@ body {
 #answer_container div:hover .del_an_hide {
   display: table-cell !important;
 }
+
 .wrap_box{
-  border: 1px solid gray;
-}
-#tm_list {
-  min-height: 480px;
-  > li {
-    &:hover .del_an_hide {
-      position: absolute;
-      display: block !important;
-      width: auto;
-      padding: 5px;
-      right: 5px;
-      top: 0px;
-    }
-    /*	position: relative;
-    	margin-top: 5px;
-    	margin-bottom: 5px;
-    	height: 30px;
-    	line-height: 30px;
-    	text-align: center;
-    	background: orange;
-    	border-radius: 5px;*/
-    width: 80%;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    -webkit-transform: translate(-50%);
-  }
-  border: 1px solid gray;
-  /*padding: 2px;*/
-  max-height: 500px;
-  list-style-type: none;
-  overflow-y: scroll;
   position: relative;
+  border: 1px solid gray;
+  box-shadow: rgba(0,0,0,.8) 3px 3px 5px;
+  height: 95%;
+  margin:  2px 40px 40px 40px;
+  //box-sizing: content-box;
+  &>.title{
+    background:#4a0263;
+    color: #fff;
+    text-align: center;
+    margin:0;
+  }
+  &>#tm_list {
+    //min-height: 480px;
+    //border: 1px solid gray;
+    position: absolute;
+    top: 33px;
+    right: 2px;
+    left: 0px;
+    bottom: -60px;
+    list-style-type: none;
+    overflow-y: auto;
+    padding-right: 25px;
+    > li {
+      &:hover .del_an_hide {
+        position: absolute;
+        display: block !important;
+        width: auto;
+        padding: 5px;
+        right: 5px;
+        top: 0px;
+      }
+      /*	position: relative;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          background: orange;
+          border-radius: 5px;*/
+      width:100%;
+      position: relative;
+      left: 18px;
+
+      //transform: translate(-50%);
+      //-webkit-transform: translate(-50%);
+    }
+
+  }
+
 }
 
 .is_right {

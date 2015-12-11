@@ -51,7 +51,6 @@
 
     var xs_name = null;
     var xs_num = null;
-    var xs_index = null;
     var cur_tmdatas = null;
     var start_dati = false;
     var cur_xx = null;
@@ -170,14 +169,13 @@
     });
 
 
-    socket.on('loginSuccess', function (index, name, num, tm,isyding) {
+    socket.on('loginSuccess', function ( name, num, tm,isyding) {
       $('#btn_login').button('reset');
       $('#login_Modal').modal('hide');
       $('#login_tip').hide();
       $('#open_login').hide();
       xs_name = name;
       xs_num = num;
-      xs_index = index;
       cur_tmdatas = tm;
       localStorage.crs_msg = JSON.stringify({name: xs_name, num: xs_num});
       $(document).attr('title', 'CRS课堂应答器' + '|' + name);
@@ -198,7 +196,7 @@
     });
 
 
-    socket.on('logout', function (index, name, num) {
+    socket.on('logout', function ( name, num) {
 
       location.reload(true);
       //$(document).attr('title','CRS课堂应答器'+'|未登录！');

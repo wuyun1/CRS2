@@ -66,27 +66,26 @@
       </nav>
     </div>
     <div id="fullpage">
-      <div data-anchor="problem_list" class="container-fluid section">
-        <div class="row">
-          <div class="wrap_box col-md-3">
-            <h4>分类标签 <button id="btn_addgroup" type="button " class="btn btn-primary btn-small">新建分类</button></h4>
-            <div class="list-group">
-              <a href="#" class="list-group-item"><span class="badge">1</span> Cras justo odio </a>
-              <a href="#" class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</a>
-              <a href="#" class="list-group-item active"><span class="badge">8</span>Morbi leo risus</a>
-              <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-              <a href="#" class="list-group-item"><span class="badge">5</span>Vestibulum at eros</a>
-            </div>
-          </div>
-          <div class="wrap_box col-md-9">
-            <h4>题目列表 <button id="btn_add_pro" type="button " class="btn btn-primary btn-small">添加题目</button></h4>
-            <ol id="tm_list" class="rounded-list">
+      <div data-anchor="problem_list" id="problem_list" class="section">
+        <!--<div class="row" style="height: 100%;">-->
+          <!--<div class="wrap_box col-md-3">-->
+            <!--<h4>分类标签 <button id="btn_addgroup" type="button " class="btn btn-primary btn-small">新建分类</button></h4>-->
+            <!--<div class="list-group">-->
+              <!--<a href="#" class="list-group-item"><span class="badge">1</span> Cras justo odio </a>-->
+              <!--<a href="#" class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</a>-->
+              <!--<a href="#" class="list-group-item active"><span class="badge">8</span>Morbi leo risus</a>-->
+              <!--<a href="#" class="list-group-item">Porta ac consectetur ac</a>-->
+              <!--<a href="#" class="list-group-item"><span class="badge">5</span>Vestibulum at eros</a>-->
+            <!--</div>-->
+          <!--</div>-->
 
-            </ol>
-          </div>
+        <!--</div>-->
+        <div class="wrap_box">
+          <h4 class = "title">题目列表 <button id="btn_add_pro" type="button " class="btn btn-primary btn-small">添加题目</button></h4>
+          <ol id="tm_list" class="rounded-list"></ol>
         </div>
       </div>
-      <div data-anchor="edit_problem" class="container-fluid section">
+      <div data-anchor="edit_problem" class="section">
         <div class="row">
           <div class="col-md-12 column">
             <form class="form-horizontal" role="form" onsubmit="return false;">
@@ -119,24 +118,24 @@
               </div>
               <button id="btn_add_an" type="button " class="btn btn-primary btn-large btn-block">添加答案选项</button>
               <hr class="col-sm-offset-2 col-sm-10">
-              <div class="form-group row">
-                <div class="col-sm-offset-2 col-sm-8">
-                  <div class="checkbox">
-                    <div class="form-group" ></div>
-                    <label>当前选择的题库： </label><input id="p_group" type="text" placeholder="默认全部" disabled="" class="form-control">
+              <!--<div class="form-group row">-->
+                <!--<div class="col-sm-offset-2 col-sm-8">-->
+                  <!--<div class="checkbox">-->
+                    <!--<div class="form-group" ></div>-->
+                    <!--<label>当前选择的题库： </label><input id="p_group" type="text" placeholder="默认全部" disabled="" class="form-control">-->
 
-                    <div class="dropdown">
-                      <button id="dropdownMenu2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle">选择题库类别<span class="caret"></span></button>
-                      <ul aria-labelledby="dropdownMenu2" class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    <!--<div class="dropdown">-->
+                      <!--<button id="dropdownMenu2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle">选择题库类别<span class="caret"></span></button>-->
+                      <!--<ul aria-labelledby="dropdownMenu2" class="dropdown-menu">-->
+                        <!--<li><a href="#">Action</a></li>-->
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                      <!--</ul>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
               <div class="form-group">
                 <div class="col-sm-6">
                   <a type="buttom" href="#problem_list" class="btn btn-primary btn-block">返回题目列表</a>
