@@ -118,6 +118,11 @@ gulp.task('serve:my', () => {
   browserSync({
     port: 9502,
     open: "external",
+    codeSync: true,
+    ui: false,
+    ghostMode: false,
+    reloadOnRestart: false,
+    scrollProportionally: false,
     online:true,
     server: {
       //baseDir: ['dist']

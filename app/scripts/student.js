@@ -32,7 +32,7 @@
     $('#fullpage').fullpage({
       // anchors: ['page_login', 'page_beginanswer'],
       css3: true,
-      // paddingTop:'50px',
+       paddingTop:'50px',
       // continuousVertical:true,
       // loopHorizontal:true,
       scrollOverflow: true,
@@ -62,10 +62,21 @@
 
 
     $('#loading_Modal').modal('show');
+
+    $('#open_login').click(function () {
+      $('#login_Modal').modal('show');
+    });
+
+    $('#logout_btn').click(function () {
+      localStorage.crs_msg=undefined;
+      location.reload(true);
+    });
+
     var socketConfig = {
       'reconnectionAttempts': 50,
       'path': '/browser-sync/socket.io'
     };
+
     var socket = io('' + location.host + '/browser-sync', socketConfig);
 
     socket.on('connecting', function (e) {
@@ -108,45 +119,42 @@
     socket.on('test', function (e) {
       console.log('test:', e);
     });
-
-    socket.on('start_yd', function (tm_index) {
+    function start_yd(tm_index) {
       var tm_xx = cur_tmdatas[tm_index].answer;
       var wrap_xx_list = $('#list_xx');
       wrap_xx_list.children().remove();
 
       tm_xx.forEach(function (item, index) {
         var xx = $('<button>');
-        xx.attr('type', 'button').attr('class', 'btn btn-primary btn-lg btn-block').attr('is_right', item.is_right).text(item.xx).attr('xx_index', index);
+        xx.attr('type', 'button').attr('class', 'btn btn-primary btn-lg').attr('is_right', item.is_right).text(item.xx).attr('xx_index', index);
         xx.click(function (argument) {
           cur_xx = $(this);
           socket.emit('yd_data', xs_num, cur_xx.attr('xx_index'));
           $('#dt_tip').text('已提交应答数据！等待教师端显示应答结果。');
           cur_xx.css('border', '3px solid #0f0');
-          $('#list_xx>button').attr('disabled', 'disabled');
+          $('#list_xx>li>button').attr('disabled', 'disabled');
         });
-        wrap_xx_list.append(xx);
+        wrap_xx_list.append($("<li/>").append(xx));
       });
-      // $('body').css('background','#fff');
-      $('#dt_tip').text('请应选择答案！');
+      $('#dt_tip').text('');
       start_dati = true;
+      $.fn.fullpage.reBuild();
 
-    });
+    }
+    socket.on('start_yd',start_yd );
 
     socket.on('stop_yd', function (e) {
       if (start_dati == false) return;
-      $('#list_xx>button').attr('disabled', 'disabled');
-      $('#list_xx>button[is_right=true]').removeClass('btn-primary').addClass('btn-success');
+      $('#list_xx>li>button').attr('disabled', 'disabled');
       if (cur_xx.attr('is_right') == 'false') {
-        cur_xx.removeClass('btn-primary').addClass('btn-danger');
+        cur_xx.parent().addClass('cha');
+        $('#list_xx>li>button[is_right=true]').parent().addClass('right');
+      }else{
+        cur_xx.parent().addClass('gou');
       }
-      // $('#list_xx').children().remove();
-      // $('#list_xx').append('<div class='alert alert-info' role='alert'>等待教师端开始应答。。。</div>');
-      // $('body').css('background','#000');
-      $('#dt_tip').text('答案：（红色为答错，绿色为答对）');
+      $('#dt_tip').text('');
       start_dati = true;
     });
-
-
     socket.on('require_login', function (argument) {
 
       $('#login_Modal').modal('show');
@@ -157,33 +165,12 @@
         $('#user_name').val(user_msg.name);
         $('#user_no').val(user_msg.num);
         $('#btn_login').button('loading');
-
-        var time_end = 3;
-
-
-        var tid = setInterval(function (argument) {
-          time_end--;
-          $('#btn_login').text(time_end + ' 秒后自动登录');
-          if (time_end == 0) {
-            clearInterval(tid);
-            $('#btn_login').text('登录');
-            $('#btn_login').click();
-          }
-
-        }, 1000);
-        $('#cancel_login').click(function (e) {
-          $('#btn_login').button('reset');
-
-          clearInterval(tid);
-          $('#login_Modal').modal('show');
-        });
-
-
+        $('#btn_login').click();
       }
     });
 
 
-    socket.on('loginSuccess', function (index, name, num, tm) {
+    socket.on('loginSuccess', function (index, name, num, tm,isyding) {
       $('#btn_login').button('reset');
       $('#login_Modal').modal('hide');
       $('#login_tip').hide();
@@ -195,6 +182,10 @@
       localStorage.crs_msg = JSON.stringify({name: xs_name, num: xs_num});
       $(document).attr('title', 'CRS课堂应答器' + '|' + name);
       $('#fullpage').fullpage.moveTo(2);
+      console.log(isyding);
+      if(isyding){
+        start_yd(isyding-1);
+      }
 
 
     });

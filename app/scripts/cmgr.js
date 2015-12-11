@@ -4,18 +4,15 @@
   $(function () {
 
     var cur_pro_data=null;
-
     var cur_editpro_key=null;
-
     var tpl_an='                            <div class="input-group"> <span class="input-group-addon"> <input type="radio" class="is_right" aria-label="..." name="is_right" ><span></span> </span> <input type="text" class="form-control" aria-label="..." placeholder="请输入答案选项"> <span class="input-group-addon del_an_hide"> <a href="#close" id="btn_del_an" class="remove label label-danger"><i class="glyphicon-remove glyphicon"></i>删除</a> </span> </div>';
     var tpl_remove_btn='<a id="btn_del_an" class="remove label label-danger del_an_hide"><i class="glyphicon-remove glyphicon"></i>删除</a>';
-
     $('#loading_Modal').modal('show');
-
     $('#fullpage').fullpage({
       anchors: ['problem_list', 'edit_problem'],
       css3:true,
       paddingTop:"50px",
+      paddingBottom:'50px',
       sectionsColor: ['#fff', '#fff', '#7BAABE', '#f90'],
       scrollOverflow:true,
       afterLoad:function (anchorLink, index) {
@@ -34,16 +31,12 @@
             }
             break;
           default:
-
             break;
         }
         $(document).attr('title',$("#navbar-nav>.active").text());
-
       }
     });
     $.fn.fullpage.setAllowScrolling(false);
-
-
     $("ul[aria-labelledby=dropdownMenu2]>li").click(function () {
       console.log($(this).text());
       $("#p_group").val($(this).text());
@@ -93,15 +86,12 @@
     });
 
     $("#btn_add_an").click(function () {
-
       $(tpl_an).appendTo($("#answer_container"));
-
       $("#answer_container .remove").unbind("click");
-
       $("#answer_container .remove").click(function (argument) {
         $(this).parent().parent().remove();
       });
-
+      $.fn.fullpage.reBuild();
 
     });
 

@@ -109,6 +109,11 @@ _gulp2.default.task('serve:my', function () {
   (0, _browserSync2.default)({
     port: 9502,
     open: "external",
+    codeSync: true,
+    ui: false,
+    ghostMode: false,
+    reloadOnRestart: false,
+    scrollProportionally: false,
     online: true,
     server: {
       //baseDir: ['dist']

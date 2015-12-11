@@ -4,7 +4,7 @@
 var db= require("./mydbapi.js");
 
 var teacher=null;
-var users=[];
+var isyding=0;
 var students=[];
 var cur_tmdatas=null;
 var mysockethandle = function (socket) {
@@ -40,11 +40,13 @@ var mysockethandle = function (socket) {
     });
     socket.on("start_yd",function (tm_index) {
       if(cur_tmdatas){
+        isyding=tm_index+1;
         socket.broadcast.emit("start_yd",tm_index);
       }
     });
     socket.on("stop_yd",function (tm_index) {
       if(cur_tmdatas){
+        isyding=0;
         socket.broadcast.emit("stop_yd",tm_index);
       }
     });
@@ -93,7 +95,7 @@ var mysockethandle = function (socket) {
       if(teacher) {
         students.push(socket);
         var index=students.indexOf(socket);
-        socket.emit("loginSuccess",index,nickname,num,cur_tmdatas);
+        socket.emit("loginSuccess",index,nickname,num,cur_tmdatas,isyding);
         teacher.emit("xs_dl",index,nickname,num);
         socket.xs_name=nickname;
         socket.xs_num=num;

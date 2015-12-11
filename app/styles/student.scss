@@ -10,11 +10,8 @@ body, html,.container {
   width:100%;
 }
 #fullpage{
-
   height: 100%;
-
   &>.section{
-    padding-top: 52px;
     height: 100%;
     box-sizing: border-box;
     background: url(/images/xs_bg.jpg) 0px 0px;
@@ -22,6 +19,54 @@ body, html,.container {
   }
 }
 
-.main_panel button {
-  height: 100px;
+
+#list_xx{
+  &>li{
+    font-size: 20px;
+    list-style-type: upper-alpha;
+    margin-bottom: 12px;
+    box-shadow: rgba(0,0,0,.8) 6px 6px 11px;
+    position: relative;
+    &::after{
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      right: 0px;
+      z-index: -1;
+    }
+    &.gou::after{
+      background: url("/images/gou.png");
+      background-size: contain;
+      z-index: auto;
+    }
+    &.cha::after{
+      background: url("/images/cha.png");
+      background-size: contain;
+      z-index: auto;
+    }
+    &.right::after{
+      background: url("/images/right.png");
+      background-size: contain;
+      z-index: auto;
+    }
+    &>button{
+      height: 100px;
+      width:100%;
+      font-size:16px;
+      line-height: 100px;
+      font-weight: bold;
+      text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 1px;
+    }
+
+    &:nth-child(even) button{
+      background: #0F77A3;
+      color:black;
+    }
+    &:nth-child(odd) button{
+      background: #4884a2;
+      color:black;
+    }
+
+  }
 }

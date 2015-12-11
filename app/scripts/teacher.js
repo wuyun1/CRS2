@@ -137,10 +137,10 @@ $(function () {
       var tmbox=$("<div>");
       tmbox.addClass("tmbox");
 
-      var content=$("<h2>");
+      var content=$("<div class = 'tm' />");
       content.text(item.content);
 
-      var xxbox=$("<ol>");
+      var xxbox=$("<ol class = 'xx' />");
       item.answer.forEach(function (item) {
         var xx=$("<li>");
         xx.text(item.xx)

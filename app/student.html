@@ -45,7 +45,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav" id="navbar-nav">
-            <li ><a href="#">首页</a></li>
+            <li ><a id="logout_btn" href="javascript:void(0);">退出登录</a></li>
             <li><a href="about.html">关于</a></li>
           </ul>
         </div>
@@ -56,6 +56,7 @@
 
 
   </div>
+
   <div id="fullpage">
     <div class="section">
 
@@ -64,23 +65,15 @@
           <div class="col-md-12">
 
             <div class="jumbotron">
-              <h1>CRS课堂应答系统 学生端</h1>
-              <p class="lead">
-                （1） 改善课堂活动情况，增强课堂交互性。<br>
-                （2）及时统计和分析数据，反馈性强。<br>
-                （3）改善学习效果，提高学习成绩。</p>
-              <p><button type="button" id="open_login" class="btn btn-success btn-large btn-block" data-toggle="modal" data-target="#login_Modal">
-                点我立即登录
-              </button></p>
+              <h3>CRS课堂应答系统 学生端</h3>
+              <ol>
+                <li> 改善课堂活动情况，增强课堂交互性。</li>
+                <li>及时统计和分析数据，反馈性强</li>
+                <li>改善学习效果，提高学习成绩。</li>
+              </ol>
+              <p> <button type="button" id="open_login" class="btn btn-success btn-large btn-block"> 点我立即登录</button></p>
             </div>
-
-
-
-
-
             <!-- Button trigger modal -->
-
-
             <hr>
             <div id="login_tip" class="alert alert-warning alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert">×</button>
@@ -99,18 +92,12 @@
 
       <!--         <div class="container-fluid slide" > -->
       <div class="row-fluid ">
-        <div class="col-xs-offset-2 col-xs-8">
+        <div class="col-xs-11">
           <div class="main_panel">
-            <h1 id="dt_tip">CRS课堂应答系统 学生端</h1>
-            <div id="list_xx">
-              <div class="" role="">等待教师端开始应答。。。</div>
-
-            </div>
+            <h4 id="dt_tip">CRS课堂应答系统 学生端<br/>等待教师端开始应答。。。</h4>
+            <ol id="list_xx">
+            </ol>
           </div>
-
-
-
-
         </div>
       </div>
       <!-- </div> -->
@@ -124,16 +111,8 @@
     <div class="section"></div>
 
   </div>
-  <div id="footer" class="container">
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="navbar-inner navbar-content-center">
-        <p class="text-muted credit" style="padding: 10px;">
-          ♥ from 湖南农业大学 教育院 教育技术系
-        </p>
-      </div>
-    </nav>
-</div>
 
+</div>
 <!-- Modal -->
 <div class="modal fade" id="loading_Modal" >
   <div class="modal-dialog">
@@ -148,6 +127,9 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div>
+
+
+
 <div class="modal fade" id="login_Modal" tabindex="-1" role="dialog" aria-labelledby="login_ModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -166,11 +148,8 @@
             <label for="user_no">学号</label>
             <input type="text" name="user_no" class="form-control" id="user_no" placeholder="亲输入学号">
           </div>
+        </form>
       </div>
-
-
-
-      </form>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel_login">取消</button>
         <button type="button" class="btn btn-primary" id="btn_login" data-loading-text="登录中..." autocomplete="off">登录</button>
