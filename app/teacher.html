@@ -17,7 +17,7 @@
   <!-- endbower -->
   <!-- endbuild -->
 
-  <!-- build:css styles/main.css -->
+  <!-- build:css styles/teacher.css -->
   <link rel="stylesheet" href="styles/teacher.css">
   <!-- endbuild -->
 
@@ -63,35 +63,35 @@
 
 
 
-  <nav id="bottom_bar" class="navbar navbar-default navbar-fixed-bottom">
-    <div class="navbar-inner navbar-content-center">
-      <p class="text-muted credit" style="padding: 10px;">
-        ♥ from 湖南农业大学 教育院 教育技术系
-      </p>
-    </div>
-  </nav>
+  <!--<nav id="bottom_bar" class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="navbar-inner navbar-content-center">-->
+      <!--<p class="text-muted credit" style="padding: 10px;">-->
+        <!--♥ from 湖南农业大学 教育院 教育技术系-->
+      <!--</p>-->
+    <!--</div>-->
+  <!--</nav>-->
 </div>
 <div id="fullpage">
   <div data-anchor="page_login" class="container-fluid section">
     <div class="row-fluid">
-      <div class="col-xs-12">
+      <div class="col-sm-12">
         <div class="row-fluid">
-          <div class="col-xs-12">
+          <div class="col-sm-12">
             <div class="page-header">
               <div class="row-fluid">
-                <div class="col-xs-2"><img alt="140x140" src="images/7.gif" class="img-polaroid"> </div>
-                <div class="col-xs-8">
+                <div class="col-sm-2"><img alt="140x140" src="images/7.gif" class="img-polaroid"> </div>
+                <div class="col-sm-8">
                   <h1 id="title_h1"><img style="width:30px;" alt="140x140" src="images/logo.png" />课堂应答系统</h1> </div>
               </div>
             </div>
           </div>
         </div>
         <div class="row-fluid">
-          <div class="col-xs-4">
+          <div class="col-sm-4">
             <div id="login_bincode"></div>
             <h4 align="center">扫码二维码登录</h4>
           </div>
-          <div class="col-xs-5">
+          <div class="col-sm-5">
             <p><span><strong>当前已登录人数: <span id="xs_len" class="badge">0</span></strong>
                                 </span>
             </p>
@@ -99,7 +99,7 @@
             </ol>
 
           </div>
-          <div class="col-xs-3">
+          <div class="col-sm-3">
             <form onsubmit="return false;">
               <!--<h4>当前选择的题库： </h4>-->
               <!--<input id="p_group" type="text" placeholder="默认全部" disabled="" class="form-control">-->
@@ -128,26 +128,26 @@
   <div data-anchor="page_beginanswer" class="container-fluid sec section" id="page2">
     <div id="ctl_panel" class="container">
       <div class="row " >
-        <div class="col-xs-6 ">
+        <div class="col-sm-6 ">
           <button type="button" id="btn_return_login" class="btn btn-default btn-block btn-primary">返回学生登录界面</button>
         </div>
-        <div class="col-xs-6 " >
+        <div class="col-sm-6 " >
           <button type="button" id="btn_yd" class="btn btn-default btn-block btn-primary">停止作答</button>
         </div>
         <br/><br/><br/>
-        <div class="col-xs-1 ">
+        <div class="col-sm-1 ">
           <span class="label label-primary" role="label">应答进度:</span>
         </div>
-        <div class="col-xs-5   ">
+        <div class="col-sm-5   ">
           <div class="progress fullwidth">
             <div class="progress-bar expand " id="p_yd" style="width:0%;">
             </div>
           </div>
         </div>
-        <div class="col-xs-1 ">
+        <div class="col-sm-1 ">
           <span class="label label-primary" role="label">题目进度:</span>
         </div>
-        <div class="col-xs-5  ">
+        <div class="col-sm-5  ">
           <div class="progress fullwidth">
             <div class="progress-bar  expand" id="p_tm" style="width:0%;">
             </div>
@@ -221,13 +221,13 @@
 <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
 <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
 <!-- endbuild -->
-
-<!-- build:js scripts/main.js -->
+<!-- build:js scripts/jscharts.js -->
 <script src="scripts/jscharts.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/teacher.js -->
 <script src="scripts/teacher.js"></script>
 <!-- endbuild -->
-<!-- build:js scripts/socket.io.js -->
 <script src="/browser-sync/socket.io/socket.io.js"></script>
-<!-- endbuild -->
+
 </body>
 </html>

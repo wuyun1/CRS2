@@ -1,7 +1,7 @@
 /**
  * Created by WYQ on 2015/12/10.
  */
-var db= require("./mydbapi.js");
+var db= require("./myDbApi.js");
 
 var teacher=null;
 var isyding=0;
@@ -93,8 +93,20 @@ var mysockethandle = function (socket) {
   socket.on('xs_login', function() {
     console.log("学生端连接");
     socket.on("xslogin",function (nickname,num) {
-      console.log(nickname,num,"学生端登录");
+
       if(teacher) {
+        var isexist=false;
+        for(var i = students.length-1;i>=0;i--){
+          if(students[i].xs_num==num){
+            isexist = true;
+            break;
+          }
+        }
+        if(isexist){
+          socket.emit("loginFaild","学号已被占用！");
+          return false
+        }
+
         students.push(socket);
         socket.emit("loginSuccess",nickname,num,cur_tmdatas,isyding);
         teacher.emit("xs_dl",nickname,num);
@@ -103,9 +115,13 @@ var mysockethandle = function (socket) {
         socket.on("yd_data",function(num,xx_index) {
           teacher.emit("yd_data",num,xx_index);
         });
+        console.log(nickname,num,"学生端登录");
       }else{
         socket.emit("loginFaild","教师端已经下线！");
       }
+
+
+
       socket.on('disconnect', function(e) {
         if(students.length!=0){
           var index=students.indexOf(socket);

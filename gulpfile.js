@@ -171,7 +171,7 @@ _gulp2.default.task('wiredep', function () {
   })).pipe(_gulp2.default.dest('app'));
 });
 
-_gulp2.default.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'wiredep'], function () {
+_gulp2.default.task('build', ['html', 'images', 'fonts', 'extras', 'wiredep'], function () {
   return _gulp2.default.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 

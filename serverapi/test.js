@@ -1,12 +1,20 @@
 /**
  * Created by WYQ on 2015/12/10.
  */
-var db = require("./mydbapi.js");
-
+var db = require("./myDbApi.js");
+var source =  require("./source.json");
 //db.find({}, function (k,d) {
 //  console.log(k+"="+d);
 //});
-db.put("k4",{a:3});
+for(var i in source){
+	console.log(i);
+	db.put(i,
+		{content:source[i].content,
+		answer:source[i].answer,
+		group:source[i].group
+	});
+}
+// db.put("k4",{a:3});
 //db.put("k1","1112323111 ");
 //db.put("k34","1111发大是大非1111 ", function (e) {
 //  console.log(e)

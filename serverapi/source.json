@@ -1,0 +1,358 @@
+{
+"ID_1446179942445": {
+  "content": "【选择题】“冲天香阵透长安，满地尽带黄金甲”描述的是什么花？？",
+  "answer": [
+    {
+      "xx": "梅花",
+      "is_right": false
+    },
+    {
+      "xx": "菊花",
+      "is_right": false
+    },
+    {
+      "xx": "自己做",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446179942445"
+},
+"ID_1446179979466": {
+  "content": "【选择题】“大禹治水”的故事家喻户晓，那么大禹治理的是哪个流域的洪水？",
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446179979466",
+  "answer": [
+    {
+      "xx": "长江流域",
+      "is_right": false
+    },
+    {
+      "xx": "黄河流域",
+      "is_right": true
+    },
+    {
+      "xx": "黄河流域",
+      "is_right": false
+    }
+  ]
+},
+"ID_1446180005138": {
+  "content": "【选择题】“但愿人长久，千里共婵娟”，苏东坡借这首词表达了对谁的思念之情？",
+  "answer": [
+    {
+      "xx": "A.妻子",
+      "is_right": true
+    },
+    {
+      "xx": "B.兄弟",
+      "is_right": false
+    },
+    {
+      "xx": "A.妻子",
+      "is_right": false
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180005138"
+},
+"ID_1446180054828": {
+  "content": "【选择题】“金戈铁马，气吞万里如虎“是谁的词句？",
+  "answer": [
+    {
+      "xx": "辛弃疾",
+      "is_right": false
+    },
+    {
+      "xx": "岳飞",
+      "is_right": true
+    },
+    {
+      "xx": "····",
+      "is_right": false
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180054828"
+},
+"ID_1446180096869": {
+  "content": "【选择题】“破釜沉舟”中的“釜”指的是什么？",
+  "answer": [
+    {
+      "xx": "锅",
+      "is_right": false
+    },
+    {
+      "xx": "碗",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180096869"
+},
+"ID_1446180121481": {
+  "content": "【选择题】“阡陌”的“陌”是田间什么方向的小路？",
+  "answer": [
+    {
+      "xx": "东西方向 ",
+      "is_right": false
+    },
+    {
+      "xx": "南北方向",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180121481"
+},
+"ID_1446180150526": {
+  "content": "【选择题】“人为刀俎我为鱼肉”中，“俎”指的是什么？",
+  "answer": [
+    {
+      "xx": "砧板 ",
+      "is_right": false
+    },
+    {
+      "xx": "斧头",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180150526"
+},
+"ID_1446180176589": {
+  "content": "【选择题】“生当做人杰，死亦为鬼雄，至今思项羽，不肯过江东。”为哪位诗人的作品？",
+  "answer": [
+    {
+      "xx": "李清照",
+      "is_right": false
+    },
+    {
+      "xx": "李白",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180176589"
+},
+"ID_1446180198377": {
+  "content": "【选择题】“司空见惯”的“司空”是指什么？",
+  "answer": [
+    {
+      "xx": "唐代的一位诗人",
+      "is_right": false
+    },
+    {
+      "xx": "一种官职",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180198377"
+},
+"ID_1446180226022": {
+  "content": "【选择题】“桃李满天下”中的“桃李“指的是什么？",
+  "answer": [
+    {
+      "xx": "朋友",
+      "is_right": false
+    },
+    {
+      "xx": "学生",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180226022"
+},
+"ID_1446180246701": {
+  "content": "【选择题】“吾日三省吾身” 是出自谁的名句？",
+  "answer": [
+    {
+      "xx": "孔子",
+      "is_right": false
+    },
+    {
+      "xx": "曾子",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180246701"
+},
+"ID_1446180274907": {
+  "content": "【选择题】“西出阳关无故人”中的“阳关”位于现在哪个省？",
+  "answer": [
+    {
+      "xx": "新疆",
+      "is_right": false
+    },
+    {
+      "xx": "甘肃",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180274907"
+},
+"ID_1446180297017": {
+  "content": "【选择题】“下半旗致哀”的由来是源于什么人物的去世？",
+  "answer": [
+    {
+      "xx": "族长",
+      "is_right": false
+    },
+    {
+      "xx": "船长",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180297017"
+},
+"ID_1446180349013": {
+  "content": "【选择题】“一日不见，如隔三秋”里的“三秋”是指多长时间？",
+  "answer": [
+    {
+      "xx": "三年 ",
+      "is_right": true
+    },
+    {
+      "xx": "三个季度",
+      "is_right": false
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180349013"
+},
+"ID_1446180370521": {
+  "answer": [
+    {
+      "xx": " 天鹅 ",
+      "is_right": false
+    },
+    {
+      "xx": " 家燕",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180370521",
+  "content": "【选择题】“在天愿作比翼鸟，在地愿为连理枝。”而真正能雌雄相守，从一而终的比翼鸟是哪一个？"
+},
+"ID_1446180392830": {
+  "content": "【选择题】《春秋》属于“四书”还是“五经”？",
+  "answer": [
+    {
+      "xx": "四书",
+      "is_right": false
+    },
+    {
+      "xx": " B、五经",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180392830"
+},
+"ID_1446180443210": {
+  "content": "【选择题】《红楼梦》的“四春”中，入宫为妃的是谁？",
+  "answer": [
+    {
+      "xx": "元春",
+      "is_right": false
+    },
+    {
+      "xx": "探春",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180443210"
+},
+"ID_1446180457439": {
+  "content": "【选择题】《南华经》是哪本著作的别称？",
+  "answer": [
+    {
+      "xx": "《老子》",
+      "is_right": false
+    },
+    {
+      "xx": "《庄子》",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180457439"
+},
+"ID_1446180504283": {
+  "content": "【选择题】《三国演义》中，曹操请哪位传世名医为自己治疗头痛？",
+  "answer": [
+    {
+      "xx": "华佗 ",
+      "is_right": false
+    },
+    {
+      "xx": "李时珍",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180504283"
+},
+"ID_1446180527497": {
+  "content": "《三国演义》中的“凤雏”是谁？",
+  "answer": [
+    {
+      "xx": "张飞",
+      "is_right": false
+    },
+    {
+      "xx": "庞统",
+      "is_right": true
+    }
+  ],
+  "group": [
+    "default"
+  ],
+  "_key": "ID_1446180527497"
+}
+}

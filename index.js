@@ -3,7 +3,7 @@ var browserSync = require( 'browser-sync');
 browserSync({
     port: 9504,
     open: "external",
-    online:false,
+    online:true,
     server: {
       baseDir: ['dist']
      },
