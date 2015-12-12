@@ -89,7 +89,7 @@ function find(find, callback) {
     }
 }
 function findAll(find, callback) {
-  var option = {keys: true, values: true, revers: false, limit: 20, fillCache: true};
+  var option = {keys: true, values: true, revers: false, limit: 100, fillCache: true};
   if (!find)
     return callback('nothing', null);
   else {
