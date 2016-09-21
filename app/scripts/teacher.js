@@ -272,7 +272,7 @@ $(function () {
       $('#yd_result').modal('show');
       if(ctm_data.length>getCurtmid ()+1){
         $("#btn_yd").text("下一题");
-        var time_end=2;
+        var time_end=5;
         $("#btn_yd_next").text(time_end+" 秒后开始下一题，点击取消自动");
         var  tid=setInterval(function(argument) {
           time_end--;

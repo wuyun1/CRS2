@@ -1,7 +1,7 @@
 var browserSync = require( 'browser-sync');
 
 browserSync({
-    port: 9504,
+    port: 8080,
     open: "external",
     online:true,
     server: {
